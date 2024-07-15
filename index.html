@@ -38,7 +38,32 @@
         .sub-sub-list {
             margin-left: 40px;
         }
+        .sub-list, .sub-sub-list {
+            display: none;
+        }
+        .toggle {
+            cursor: pointer;
+            color: blue;
+        }
+        .toggle:hover {
+            text-decoration: underline;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var toggles = document.querySelectorAll('.toggle');
+            toggles.forEach(function(toggle) {
+                toggle.addEventListener('click', function() {
+                    var subList = this.nextElementSibling;
+                    if (subList.style.display === "none") {
+                        subList.style.display = "block";
+                    } else {
+                        subList.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -52,21 +77,21 @@
                     <a href="strona1.html">Sieci</a>
                     <ul class="sub-list">
                         <li>
-                            <a href="strona1a.html">CCNA Scope</a>
+                            <span class="toggle">CCNA Scope</span>
                             <ul class="sub-sub-list">
                                 <li><a href="strona1a1.html">1.0 Network Fundamentals</a></li>
                                 <li><a href="strona1a2.html">2.0 Network Access</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="strona1b.html">CCNP Enterprise scope</a>
+                            <span class="toggle">CCNP Enterprise scope</span>
                             <ul class="sub-sub-list">
                                 <li><a href="strona1b1.html">ENCORE 350-401</a></li>
                                 <li><a href="strona1b2.html">ENSLD 300-420 </a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="strona1c.html">CCNP Security scope</a>
+                            <span class="toggle">strona1c.html">CCNP Security scope</span>
                             <ul class="sub-sub-list">
                                 <li><a href="strona1c1.html">SCOR 350-701</a></li>
                                 <li><a href="strona1c2.html">SNCF 300-710</a></li>
